@@ -113,6 +113,20 @@ export interface PostgresPublication {
   tables: { id: number; name: string; schema: string }[] | null
 }
 
+export interface PostgresTrigger {
+  id: number
+  schema: string
+  name: string
+  event: string
+  catalog: string
+  table: string
+  function_statement: string
+  orientation: 'ROW' | 'STATEMENT'
+  timing: 'BEFORE' | 'AFTER' | 'INSTEAD OF'
+  is_enabled: boolean
+  condition?: string | null
+}
+
 export interface PostgresRelationship {
   id: number
   constraint_name: string
